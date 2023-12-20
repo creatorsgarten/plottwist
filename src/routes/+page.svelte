@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	// import Hydra from 'hydra-synth';
 
-	let cv = undefined;
+	let cv: HTMLCanvasElement;
 	let a = 1;
 	let b = 0;
 	let cur = 0;
@@ -26,6 +25,8 @@
 	onMount(() => {
 		const hydra = new Hydra({ detectAudio: false, canvas: cv });
 		eval(prog[cur]);
+
+		// document.getElementById('stop').addEventListener('click', () => hush());
 	});
 </script>
 
@@ -64,6 +65,8 @@
 					eval(prog[cur]);
 				}}>Shuffle</button
 			>
+			<button id="play" on:click={() => note('<c a f e>(3,8)').play()}>▶️</button>
+			<button id="pause" on:click={() => hush()}>⏸️</button>
 		</div>
 	</div>
 </div>

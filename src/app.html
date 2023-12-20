@@ -7,6 +7,11 @@
 		%sveltekit.head%
 	</head>
 	<script src="https://unpkg.com/hydra-synth"></script>
+	<script type="module">
+		import { initStrudel } from 'https://cdn.skypack.dev/@strudel/web@0.8.2';
+	  
+		initStrudel();
+	  </script>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
